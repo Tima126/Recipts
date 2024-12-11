@@ -1,0 +1,230 @@
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header {
+    background-color: #f4a261;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #e76f51;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: #2a9d8f;
+}
+
+/* Стили для поиска */
+.search form {
+    display: flex;
+    justify-content: center;
+}
+
+.search input {
+    width: 60%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+}
+
+.search button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #2a9d8f;
+    color: white;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+/* Стили для категорий */
+.categories ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.categories ul li {
+    margin: 10px;
+    background-color: #2a9d8f;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.categories ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Стили для рецептов */
+.recipe-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.recipe-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px;
+    width: 30%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-card img {
+    width: 100%;
+    height: 200px; /* Фиксированная высота для изображений */
+    object-fit: cover; /* Масштабирование изображения без искажений */
+    border-radius: 5px 5px 0 0;
+}
+
+.recipe-card h3 {
+    margin: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.recipe-card p {
+    margin: 10px;
+    color: #666;
+}
+
+/* Стили для статей */
+.articles ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.articles ul li {
+    margin: 0 15px;
+}
+
+.articles ul li a {
+    color: #2a9d8f;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Стили для футера */
+footer {
+    background-color: #264653;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 40px;
+}
+
+/* Стили для страницы "Экономия времени на кухне" */
+.time-saving {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.time-saving h2 {
+    color: #2a9d8f;
+    margin-bottom: 20px;
+}
+
+.time-saving ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.time-saving li {
+    margin-bottom: 10px;
+}
+
+/* Стили для страницы "Вкусные идеи для праздников" */
+.holiday-ideas {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.holiday-ideas h2 {
+    color: #2a9d8f;
+    margin-bottom: 20px;
+}
+
+.holiday-ideas ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.holiday-ideas li {
+    margin-bottom: 10px;
+}
+
+.holiday-ideas .recipe-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.holiday-ideas .recipe-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px;
+    width: 30%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.holiday-ideas .recipe-card img {
+    width: 100%;
+    height: 200px; /* Фиксированная высота для изображений */
+    object-fit: cover; /* Масштабирование изображения без искажений */
+    border-radius: 5px 5px 0 0;
+}
+
+.holiday-ideas .recipe-card h3 {
+    margin: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.holiday-ideas .recipe-card p {
+    margin: 10px;
+    color: #666;
+}

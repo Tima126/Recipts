@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вкусно и Просто - рецепты для домохозяек</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Стили для крестика в строке поиска */
+        .search-input-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 100%; /* Устанавливаем ширину контейнера на 100% */
+            max-width: 600px; /* Максимальная ширина контейнера */
+            margin: 0 auto; /* Центрируем контейнер */
+        }
+
+        .search-input-container input {
+            width: 100%; /* Ширина поля ввода на 100% от контейнера */
+            padding-right: 30px; /* Добавляем отступ для крестика */
+        }
+
+        .search-input-container .clear-icon {
+            position: absolute;
+            right: 100px;
+            cursor: pointer;
+            color: #999;
+        }
+
+        .search-input-container .clear-icon:hover {
+            color: #333;
+        }
+
+        .search-input-container button {
+            margin-left: 10px; /* Отступ между полем ввода и кнопкой */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Вкусно и Просто</h1>
+        <p>Рецепты для домохозяек</p>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="search">
+            <h2>Поиск по рецептам</h2>
+            <form id="search-form">
+                <div class="search-input-container">
+                    <input type="text" id="search-input" placeholder="Название, ингредиенты, время приготовления...">
+                    <span class="clear-icon" onclick="clearSearchInput()">&#10005;</span>
+                    <button type="submit">Найти</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="categories">
+            <h2>Категории рецептов</h2>
+            <ul>
+                <li><button class="category-btn" data-category="Завтраки">Завтраки</button></li>
+                <li><button class="category-btn" data-category="Первые блюда">Первые блюда</button></li>
+                <li><button class="category-btn" data-category="Вторые блюда">Вторые блюда</button></li>
+                <li><button class="category-btn" data-category="Гарниры">Гарниры</button></li>
+                <li><button class="category-btn" data-category="Салаты">Салаты</button></li>
+                <li><button class="category-btn" data-category="Десерты">Десерты</button></li>
+                <li><button class="category-btn" data-category="Выпечка">Выпечка</button></li>
+                <li><button class="category-btn" data-category="Закуски">Закуски</button></li>
+                <li><button class="category-btn" data-category="Напитки">Напитки</button></li>
+            </ul>
+        </section>
+
+        <section class="popular-recipes">
+            <h2>Популярные рецепты</h2>
+            <div class="recipe-grid" id="recipe-grid">
+                <!-- Завтраки -->
+                <div class="recipe-card" data-name="Омлет с овощами" data-ingredients="яйца, овощи" data-time="30" data-category="Завтраки">
+                    <a href="site/1.html">
+                        <img src="https://images.unsplash.com/photo-1595854341625-f33ee10dbf94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Омлет с овощами">
+                        <h3>Омлет с овощами</h3>
+                        <p>Быстрый и вкусный завтрак с овощами.</p>
+                        <p>Время приготовления: 30 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Сырники" data-ingredients="творог, мука, яйца" data-time="20" data-category="Завтраки">
+                    <a href="site/10.html">
+                        <img src="https://images.gastronom.ru/gIkJKrlns0d0jCWcKUalPWpUK8BxKsQFoHE3zNJK8j0/pr:recipe-cover-image/g:ce/rs:auto:0:0:0/L2Ntcy9hbGwtaW1hZ2VzLzQ3MmNkZDczLTllODAtNDRkNi1iODIyLWI0MTI0ZWZjMWMyMS5wbmc.webp" alt="Сырники">
+                        <h3>Сырники</h3>
+                        <p>Нежные сырники с творогом.</p>
+                        <p>Время приготовления: 20 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Овсянка" data-ingredients="овсянка, молоко, фрукты" data-time="15" data-category="Завтраки">
+                    <a href="site/11.html">
+                        <img src="https://mir-burger.ru/assets/images/products/60/ovsyanka.png" alt="Овсянка">
+                        <h3>Овсянка</h3>
+                        <p>Питательная овсянка с фруктами.</p>
+                        <p>Время приготовления: 15 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Борщ с говядиной" data-ingredients="говядина, свекла" data-time="45" data-category="Первые блюда">
+                    <a href="site/2.html">
+                        <img src="https://halalmsk.ru/wp-content/uploads/2021/03/borshch-s-govyadinoy-1.jpg?v=1616669702" alt="Борщ с говядиной">
+                        <h3>Борщ с говядиной</h3>
+                        <p>Классический русский суп с говядиной и свеклой.</p>
+                        <p>Время приготовления: 45 мин</p>
+                    </a>
+                </div>
+                <!-- Остальные рецепты будут отображаться только в категориях -->
+                <div class="recipe-card" data-name="Солянка" data-ingredients="говядина, колбаса, огурцы" data-time="60" data-category="Первые блюда">
+                    <a href="site/12.html">
+                        <img src="https://gotovim-doma.ru/images/recipe/c/28/c281fee84e0a4e89bbbb6bb510904d04_l.jpg" alt="Солянка">
+                        <h3>Солянка</h3>
+                        <p>Ароматная солянка с мясом и колбасой.</p>
+                        <p>Время приготовления: 60 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Уха" data-ingredients="рыба, картофель, морковь" data-time="40" data-category="Первые блюда">
+                    <a href="site/13.html">
+                        <img src="https://img1.russianfood.com/dycontent/images_upl/325/big_324608.jpg" alt="Уха">
+                        <h3>Уха</h3>
+                        <p>Ароматная уха с рыбой и овощами.</p>
+                        <p>Время приготовления: 40 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Свинина по-китайски" data-ingredients="свинина, соевый соус" data-time="40" data-category="Вторые блюда">
+                    <a href="site/5.html">
+                        <img src="https://images.unsplash.com/photo-1585238342024-78d387f4a707?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Свинина по-китайски">
+                        <h3>Свинина по-китайски</h3>
+                        <p>Ароматная свинина с соевым соусом и медом.</p>
+                        <p>Время приготовления: 40 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Котлеты по-киевски" data-ingredients="курица, масло, сливочное масло" data-time="45" data-category="Вторые блюда">
+                    <a href="site/14.html">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSn9Wb4UixatxNTmkylCDYMgh_uyidP0blKA&s" alt="Котлеты по-киевски">
+                        <h3>Котлеты по-киевски</h3>
+                        <p>Нежные котлеты по-киевски с курицей.</p>
+                        <p>Время приготовления: 45 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Жаркое" data-ingredients="говядина, картофель, морковь" data-time="60" data-category="Вторые блюда">
+                    <a href="site/15.html">
+                        <img src="https://www.patee.ru/r/x6/18/bb/c6/960x.jpg" alt="Жаркое">
+                        <h3>Жаркое</h3>
+                        <p>Ароматное жаркое с говядиной и овощами.</p>
+                        <p>Время приготовления: 60 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Картофельное пюре" data-ingredients="картофель, молоко" data-time="30" data-category="Гарниры">
+                    <a href="site/6.html">
+                        <img src="https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/B66B89C2-90DF-4526-B96A-77A801ECAA29/Derivates/4b4fa017-d0cf-4b96-9c81-1b6dbd636dcc.jpg" alt="Картофельное пюре">
+                        <h3>Картофельное пюре</h3>
+                        <p>Нежное и вкусное картофельное пюре.</p>
+                        <p>Время приготовления: 30 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Рис с овощами" data-ingredients="рис, морковь, горошек" data-time="25" data-category="Гарниры">
+                    <a href="site/16.html">
+                        <img src="https://img1.russianfood.com/dycontent/images_upl/465/big_464528.jpg" alt="Рис с овощами">
+                        <h3>Рис с овощами</h3>
+                        <p>Ароматный рис с овощами.</p>
+                        <p>Время приготовления: 25 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Гречка с грибами" data-ingredients="гречка, грибы, лук" data-time="30" data-category="Гарниры">
+                    <a href="site/17.html">
+                        <img src="https://img1.russianfood.com/dycontent/images_upl/581/big_580836.jpg" alt="Гречка с грибами">
+                        <h3>Гречка с грибами</h3>
+                        <p>Ароматная гречка с грибами.</p>
+                        <p>Время приготовления: 30 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Салат Цезарь" data-ingredients="салат, курица" data-time="20" data-category="Салаты">
+                    <a href="site/3.html">
+                        <img src="https://static.1000.menu/img/content-v2/eb/79/19516/salat-cezar-klassicheskii-s-kuricei_1611309331_16_max.jpg" alt="Салат Цезарь">
+                        <h3>Салат Цезарь</h3>
+                        <p>Классический салат с курицей, сыром пармезан и соусом Цезарь.</p>
+                        <p>Время приготовления: 20 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Оливье" data-ingredients="картофель, горошек, колбаса" data-time="30" data-category="Салаты">
+                    <a href="site/18.html">
+                        <img src="https://images.gastronom.ru/ZznNF8UlQk2m7YY2ltMEmqeWsTeHJk5txwIo9WvG6wY/pr:recipe-preview-image/g:ce/rs:auto:0:0:0/L2Ntcy9hbGwtaW1hZ2VzL2QxOTg4MmNjLTU1YjAtNDQ5ZS05Nzc3LTkzNDUzNGYxMzZkMi5qcGc" alt="Оливье">
+                        <h3>Оливье</h3>
+                        <p>Классический салат Оливье с картофелем и колбасой.</p>
+                        <p>Время приготовления: 30 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Винегрет" data-ingredients="картофель, морковь, свекла" data-time="25" data-category="Салаты">
+                    <a href="site/19.html">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Vinegret_cleaned.jpg" alt="Винегрет">
+                        <h3>Винегрет</h3>
+                        <p>Ароматный винегрет с овощами.</p>
+                        <p>Время приготовления: 25 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Шоколадный торт" data-ingredients="мука, какао, сахар" data-time="60" data-category="Десерты">
+                    <a href="site/7.html">
+                        <img src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Шоколадный торт">
+                        <h3>Шоколадный торт</h3>
+                        <p>Нежный шоколадный торт с насыщенным вкусом.</p>
+                        <p>Время приготовления: 60 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Торт Наполеон" data-ingredients="тесто, крем, вареная сгущенка" data-time="90" data-category="Десерты">
+                    <a href="site/20.html">
+                        <img src="https://i.ytimg.com/vi/hdQIqHYg1uY/maxresdefault.jpg" alt="Торт Наполеон">
+                        <h3>Торт Наполеон</h3>
+                        <p>Классический торт Наполеон с кремом.</p>
+                        <p>Время приготовления: 90 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Пирожное Картошка" data-ingredients="тесто, крем, какао" data-time="45" data-category="Десерты">
+                    <a href="site/21.html">
+                        <img src="https://paulinecakeclub.ru/wp-content/uploads/2023/07/pirozhnoe-kartoshka-iz-suharej-i-kakao-foto-1-952x472.jpg" alt="Пирожное Картошка">
+                        <h3>Пирожное Картошка</h3>
+                        <p>Ароматное пирожное Картошка.</p>
+                        <p>Время приготовления: 45 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Пирог с яблоками" data-ingredients="яблоки, тесто" data-time="60" data-category="Выпечка">
+                    <a href="site/4.html">
+                        <img src="https://edimdoma.ru/data/recipes/0012/5784/125784-ed4_wide.jpg?1628771537" alt="Пирог с яблоками">
+                        <h3>Пирог с яблоками</h3>
+                        <p>Ароматный домашний пирог с яблоками и корицей.</p>
+                        <p>Время приготовления: 60 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Булочки с изюмом" data-ingredients="мука, дрожжи, изюм" data-time="75" data-category="Выпечка">
+                    <a href="site/22.html">
+                        <img src="https://img.iamcook.ru/2023/upl/recipes/cat/u-2c7e743536fad1150b6be8af19e7251c.JPG" alt="Булочки с изюмом">
+                        <h3>Булочки с изюмом</h3>
+                        <p>Ароматные булочки с изюмом.</p>
+                        <p>Время приготовления: 75 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Круассаны" data-ingredients="мука, масло, яйца" data-time="90" data-category="Выпечка">
+                    <a href="site/23.html">
+                        <img src="https://www.chefmarket.ru/blog/wp-content/uploads/2020/11/croissants-with-baking--2000x1200.jpg" alt="Круассаны">
+                        <h3>Круассаны</h3>
+                        <p>Нежные круассаны с маслом.</p>
+                        <p>Время приготовления: 90 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Колбаски в тесте" data-ingredients="колбаски, мука" data-time="45" data-category="Закуски">
+                    <a href="site/8.html">
+                        <img src="https://img1.russianfood.com/dycontent/images_upl/223/big_222260.jpg" alt="Колбаски в тесте">
+                        <h3>Колбаски в тесте</h3>
+                        <p>Хрустящие колбаски в тесте — идеальная закуска.</p>
+                        <p>Время приготовления: 45 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Креветки в чесночном соусе" data-ingredients="креветки, чеснок, масло" data-time="20" data-category="Закуски">
+                    <a href="site/24.html">
+                        <img src="https://spark.ru/upload/other/b_60d1f6532c798.jpg" alt="Креветки в чесночном соусе">
+                        <h3>Креветки в чесночном соусе</h3>
+                        <p>Ароматные креветки в чесночном соусе.</p>
+                        <p>Время приготовления: 20 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Рулетики с сыром" data-ingredients="тесто, сыр, зелень" data-time="30" data-category="Закуски">
+                    <a href="site/25.html">
+                        <img src="https://dikoed.ru/upload/iblock/23b/16394-myasnye-ruletiki-s-syrom.jpg" alt="Рулетики с сыром">
+                        <h3>Рулетики с сыром</h3>
+                        <p>Аппетитные рулетики с сыром и зеленью.</p>
+                        <p>Время приготовления: 30 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Лимонад" data-ingredients="лимоны, сахар" data-time="15" data-category="Напитки">
+                    <a href="site/9.html">
+                        <img src="https://s1.eda.ru/StaticContent/Photos/120329181829/160625163424/p_O.jpg" alt="Лимонад">
+                        <h3>Лимонад</h3>
+                        <p>Освежающий лимонад для жарких дней.</p>
+                        <p>Время приготовления: 15 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Коктейль Мохито" data-ingredients="ром, лайм, мята" data-time="10" data-category="Напитки">
+                    <a href="site/26.html">
+                        <img src="https://greeneco.kz/d/mokhito_na_sayt.jpg" alt="Коктейль Мохито">
+                        <h3>Коктейль Мохито</h3>
+                        <p>Освежающий коктейль Мохито с ромом и мятой.</p>
+                        <p>Время приготовления: 10 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Апельсиновый сок" data-ingredients="апельсины" data-time="5" data-category="Напитки">
+                    <a href="site/27.html">
+                        <img src="https://foto.vsesoki.ru/files/1/7864/17227448/original/apelsinovy_sok.jpg" alt="Апельсиновый сок">
+                        <h3>Апельсиновый сок</h3>
+                        <p>Свежевыжатый апельсиновый сок.</p>
+                        <p>Время приготовления: 5 мин</p>
+                    </a>
+                </div>
+                <!-- Добавляем рецепты с 28 по конечный -->
+                <div class="recipe-card" data-name="Лазанья" data-ingredients="фарш, томатный соус, сыр" data-time="60" data-category="Вторые блюда">
+                    <a href="site/28.htm">
+                        <img src="https://eda.ru/images/RecipeOpenGraph/1200x630/lazanya-so-svininoy-i-gribami_126483_ogimage.jpg" alt="Лазанья">
+                        <h3>Лазанья</h3>
+                        <p>Аппетитная лазанья с мясным фаршем и сыром.</p>
+                        <p>Время приготовления: 60 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Мясо по-французски" data-ingredients="курица, вино, грибы" data-time="90" data-category="Вторые блюда">
+                    <a href="site/29.htm">
+                        <img src="https://chaihanadastarhan.ru/upload/corvax.mini/92a/92a75844362c9e9f74e5fd86e9738006.png" alt="Мясо по-французски">
+                        <h3>Мясо по-французски</h3>
+                        <p>Ароматное мясо по-французски с вином и грибами.</p>
+                        <p>Время приготовления: 90 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Паста карбонара" data-ingredients="спагетти, бекон, сыр" data-time="30" data-category="Вторые блюда">
+                    <a href="site/30.htm">
+                        <img src="https://mamadona.ru/ckfinder/userfiles/images/s1200(1).jpg" alt="Паста карбонара">
+                        <h3>Паста карбонара</h3>
+                        <p>Классическая паста карбонара с беконом и сыром.</p>
+                        <p>Время приготовления: 30 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Цыпленок карри" data-ingredients="курица, карри, кокосовое молоко" data-time="60" data-category="Вторые блюда">
+                    <a href="site/31.htm">
+                        <img src="https://fermahelp.ru/wp-content/uploads/2020/11/https-izkuricy-ru-wp-content-uploads-2018-12-0_b.jpeg" alt="Цыпленок карри">
+                        <h3>Цыпленок карри</h3>
+                        <p>Ароматный цыпленок карри с кокосовым молоком.</p>
+                        <p>Время приготовления: 60 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Салат Мимоза" data-ingredients="сельдь, овощи, яйца" data-time="40" data-category="Салаты">
+                    <a href="site/32.htm">
+                        <img src="https://avatars.mds.yandex.net/i?id=7529b1b042acdf779ee574248a3275d3c9c7b6ca3c2234e2-11944703-images-thumbs&n=13" alt="Салат Мимоза">
+                        <h3>Салат Мимоза</h3>
+                        <p>Классический салат Мимоза с сельдью и овощами.</p>
+                        <p>Время приготовления: 40 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Плов" data-ingredients="рис, мясо, овощи" data-time="60" data-category="Гарниры">
+                    <a href="site/33.htm">
+                        <img src="https://avatars.mds.yandex.net/get-entity_search/97211/784359805/SUx182_2x" alt="Плов">
+                        <h3>Плов</h3>
+                        <p>Ароматный плов с мясом и овощами.</p>
+                        <p>Время приготовления: 60 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Селедка под шубой" data-ingredients="сельдь, овощи, яйца" data-time="60" data-category="Салаты">
+                    <a href="site/34.htm">
+                        <img src="https://avatars.mds.yandex.net/get-entity_search/2480709/984763333/S600xU_2x" alt="Селедка под шубой">
+                        <h3>Селедка под шубой</h3>
+                        <p>Классический салат Селедка под шубой с овощами и яйцами.</p>
+                        <p>Время приготовления: 60 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Чак-чак" data-ingredients="тесто, сахар, масло" data-time="60" data-category="Десерты">
+                    <a href="site/35.htm">
+                        <img src="https://avatars.mds.yandex.net/get-entity_search/11019286/953014448/S600xU_2x" alt="Чак-чак">
+                        <h3>Чак-чак</h3>
+                        <p>Традиционное русское блюдо — чак-чак.</p>
+                        <p>Время приготовления: 60 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Тирамису" data-ingredients="бисквит, крем, кофе" data-time="60" data-category="Десерты">
+                    <a href="site/36.htm">
+                        <img src="https://avatars.mds.yandex.net/get-entity_search/1220991/970339208/S600xU_2x" alt="Тирамису">
+                        <h3>Тирамису</h3>
+                        <p>Классический итальянский десерт — тирамису.</p>
+                        <p>Время приготовления: 60 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Похвала" data-ingredients="мука, сахар, масло" data-time="60" data-category="Выпечка">
+                    <a href="site/37.htm">
+                        <img src="https://avatars.mds.yandex.net/get-entity_search/95107/963074561/S600xU_2x" alt="Похвала">
+                        <h3>Похвала</h3>
+                        <p>Традиционное русское блюдо — похвала.</p>
+                        <p>Время приготовления: 60 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Медовик" data-ingredients="тесто, мед, крем" data-time="60" data-category="Десерты">
+                    <a href="site/38.htm">
+                        <img src="https://avatars.mds.yandex.net/get-entity_search/2044927/993154125/S600xU_2x" alt="Медовик">
+                        <h3>Медовик</h3>
+                        <p>Классический русский десерт — медовик.</p>
+                        <p>Время приготовления: 60 мин</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="new-recipes">
+            <h2>Новые рецепты</h2>
+            <div class="recipe-grid" id="new-recipe-grid">
+                <!-- Пример рецепта -->
+                <div class="recipe-card" data-name="Салат Цезарь" data-ingredients="салат, курица" data-time="20" data-category="Салаты">
+                    <a href="site/3.html">
+                        <img src="https://static.1000.menu/img/content-v2/eb/79/19516/salat-cezar-klassicheskii-s-kuricei_1611309331_16_max.jpg" alt="Салат Цезарь">
+                        <h3>Салат Цезарь</h3>
+                        <p>Классический салат с курицей, сыром пармезан и соусом Цезарь.</p>
+                        <p>Время приготовления: 20 мин</p>
+                    </a>
+                </div>
+                <!-- Пример рецепта -->
+                <div class="recipe-card" data-name="Пирог с яблоками" data-ingredients="яблоки, тесто" data-time="60" data-category="Выпечка">
+                    <a href="site/4.html">
+                        <img src="https://edimdoma.ru/data/recipes/0012/5784/125784-ed4_wide.jpg?1628771537" alt="Пирог с яблоками">
+                        <h3>Пирог с яблоками</h3>
+                        <p>Ароматный домашний пирог с яблоками и корицей.</p>
+                        <p>Время приготовления: 60 мин</p>
+                    </a>
+                </div>
+                <!-- Добавляем рецепты с 28 по конечный -->
+                <div class="recipe-card" data-name="Лазанья" data-ingredients="фарш, томатный соус, сыр" data-time="60" data-category="Вторые блюда">
+                    <a href="site/28.htm">
+                        <img src="https://eda.ru/images/RecipeOpenGraph/1200x630/lazanya-so-svininoy-i-gribami_126483_ogimage.jpg" alt="Лазанья">
+                        <h3>Лазанья</h3>
+                        <p>Аппетитная лазанья с мясным фаршем и сыром.</p>
+                        <p>Время приготовления: 60 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Мясо по-французски" data-ingredients="курица, вино, грибы" data-time="90" data-category="Вторые блюда">
+                    <a href="site/29.htm">
+                        <img src="https://chaihanadastarhan.ru/upload/corvax.mini/92a/92a75844362c9e9f74e5fd86e9738006.png" alt="Мясо по-французски">
+                        <h3>Мясо по-французски</h3>
+                        <p>Ароматное мясо по-французски с вином и грибами.</p>
+                        <p>Время приготовления: 90 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Паста карбонара" data-ingredients="спагетти, бекон, сыр" data-time="30" data-category="Вторые блюда">
+                    <a href="site/30.htm">
+                        <img src="https://mamadona.ru/ckfinder/userfiles/images/s1200(1).jpg" alt="Паста карбонара">
+                        <h3>Паста карбонара</h3>
+                        <p>Классическая паста карбонара с беконом и сыром.</p>
+                        <p>Время приготовления: 30 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Цыпленок карри" data-ingredients="курица, карри, кокосовое молоко" data-time="60" data-category="Вторые блюда">
+                    <a href="site/31.htm">
+                        <img src="https://fermahelp.ru/wp-content/uploads/2020/11/https-izkuricy-ru-wp-content-uploads-2018-12-0_b.jpeg" alt="Цыпленок карри">
+                        <h3>Цыпленок карри</h3>
+                        <p>Ароматный цыпленок карри с кокосовым молоком.</p>
+                        <p>Время приготовления: 60 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Салат Мимоза" data-ingredients="сельдь, овощи, яйца" data-time="40" data-category="Салаты">
+                    <a href="site/32.htm">
+                        <img src="https://avatars.mds.yandex.net/i?id=7529b1b042acdf779ee574248a3275d3c9c7b6ca3c2234e2-11944703-images-thumbs&n=13" alt="Салат Мимоза">
+                        <h3>Салат Мимоза</h3>
+                        <p>Классический салат Мимоза с сельдью и овощами.</p>
+                        <p>Время приготовления: 40 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Плов" data-ingredients="рис, мясо, овощи" data-time="60" data-category="Гарниры">
+                    <a href="site/33.htm">
+                        <img src="https://avatars.mds.yandex.net/get-entity_search/97211/784359805/SUx182_2x" alt="Плов">
+                        <h3>Плов</h3>
+                        <p>Ароматный плов с мясом и овощами.</p>
+                        <p>Время приготовления: 60 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Селедка под шубой" data-ingredients="сельдь, овощи, яйца" data-time="60" data-category="Салаты">
+                    <a href="site/34.htm">
+                        <img src="https://avatars.mds.yandex.net/get-entity_search/2480709/984763333/S600xU_2x" alt="Селедка под шубой">
+                        <h3>Селедка под шубой</h3>
+                        <p>Классический салат Селедка под шубой с овощами и яйцами.</p>
+                        <p>Время приготовления: 60 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Чак-чак" data-ingredients="тесто, сахар, масло" data-time="60" data-category="Десерты">
+                    <a href="site/35.htm">
+                        <img src="https://avatars.mds.yandex.net/get-entity_search/11019286/953014448/S600xU_2x" alt="Чак-чак">
+                        <h3>Чак-чак</h3>
+                        <p>Традиционное русское блюдо — чак-чак.</p>
+                        <p>Время приготовления: 60 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Тирамису" data-ingredients="бисквит, крем, кофе" data-time="60" data-category="Десерты">
+                    <a href="site/36.htm">
+                        <img src="https://avatars.mds.yandex.net/get-entity_search/1220991/970339208/S600xU_2x" alt="Тирамису">
+                        <h3>Тирамису</h3>
+                        <p>Классический итальянский десерт — тирамису.</p>
+                        <p>Время приготовления: 60 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Похвала" data-ingredients="мука, сахар, масло" data-time="60" data-category="Выпечка">
+                    <a href="site/37.htm">
+                        <img src="https://avatars.mds.yandex.net/get-entity_search/95107/963074561/S600xU_2x" alt="Похвала">
+                        <h3>Похвала</h3>
+                        <p>Традиционное русское блюдо — похвала.</p>
+                        <p>Время приготовления: 60 мин</p>
+                    </a>
+                </div>
+                <div class="recipe-card" data-name="Медовик" data-ingredients="тесто, мед, крем" data-time="60" data-category="Десерты">
+                    <a href="site/38.htm">
+                        <img src="https://avatars.mds.yandex.net/get-entity_search/2044927/993154125/S600xU_2x" alt="Медовик">
+                        <h3>Медовик</h3>
+                        <p>Классический русский десерт — медовик.</p>
+                        <p>Время приготовления: 60 мин</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="articles">
+            <h2>Полезное</h2>
+            <ul>
+				<li><a href="cooking-tips.html">Советы по кулинарии</a></li>
+                <li><a href="time-saving.html">Экономия времени на кухне</a></li>
+				<li><a href="holiday-ideas.html">Вкусные идеи для праздников</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Вкусно и Просто. Все права защищены.</p>
+    </footer>
+
+    <script>
+        document.getElementById('search-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const searchQuery = document.getElementById('search-input').value.toLowerCase();
+            const recipeCards = document.querySelectorAll('.recipe-card');
+
+            recipeCards.forEach(card => {
+                const name = card.getAttribute('data-name').toLowerCase();
+                const ingredients = card.getAttribute('data-ingredients').toLowerCase();
+                const time = card.getAttribute('data-time').toLowerCase();
+
+                if (name.includes(searchQuery) || ingredients.includes(searchQuery) || time.includes(searchQuery)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        document.querySelectorAll('.category-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const category = this.getAttribute('data-category');
+                const recipeCards = document.querySelectorAll('.recipe-card');
+
+                recipeCards.forEach(card => {
+                    const cardCategory = card.getAttribute('data-category');
+
+                    if (category === 'Все' || cardCategory === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        function clearSearchInput() {
+            document.getElementById('search-input').value = '';
+        }
+    </script>
+</body>
+</html>
